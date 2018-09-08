@@ -44,13 +44,16 @@ class Blockchain
 
 		this.chain.push(newBlock);  //to push blocks into the blockchain
 	}
-	isChainValid(){
+	isChainValid(){      
+		// this method checks whether a particular block of code is altered or not
+		
 		for(let i = 1; i < this.chain.length;i++){
 			const currentBlock = this.chain[i];
 			const previousBlock = this.chain[i-1];
 
 			if(currentBlock.hash !== currentBlock.calculateHash()){
 				return false;
+				//hashes are collision free
 
 			}
 			if(currentBlock.previousHash !== previousBlock.hash){
@@ -68,8 +71,9 @@ class Blockchain
 
 
 console.log(JSON.stringify(myCoin, null ,4));   //displays output
-myCoin.chain[1].data = {amount : 40}; 
-console.log("is blockchain valid "+ my coin.isChainValid());
+//myCoin.chain[1].data = {amount : 40}; 
+// the above line of code when once uncommented,the data of block1(line no 69)is altered
+console.log("is blockchain valid "+ my coin.isChainValid()); //displays the output for validity of blockchain
 
 // the output of this code till here will showcase a genesis block along with its other two blocks with the static data given by us in it.
 
