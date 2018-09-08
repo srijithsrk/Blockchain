@@ -56,3 +56,5 @@ console.log(JSON.stringify(myCoin, null ,4));   //displays output
 
 }
 
+// the output of this code till here will showcase a genesis block along with its other two blocks with the static data given by us in it.
+
