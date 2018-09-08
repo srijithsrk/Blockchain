@@ -6,14 +6,14 @@ class Block
 	{
 		this.index = index;
 		this.timestamp = timestamp;
-		this.data = data; 
+		this.data = data;  //amout :2 initially kept static
 		this.previousHash = previousHash;
 		this,hash = this.calculateHash();
 	}
 
 	calculateHash()  // this method calculates the hash value of the blocks
 	{         
-		return SHA256(this.index + this.timestamp +JSON.stringify(this.data) + this.previousHash).toString();  
+		return SHA256(this.index + this.timestamp +JSON.stringify(this.data) + this.previousHash).toString(); // to convert the data from integer to string
 	}
 }
 
@@ -39,7 +39,7 @@ class Blockchain
 	}
 	addBlock(newBlock)
 	{
-		newBlock.previousHash = this.getLatestBlock().hash;
+		newBlock.previousHash = this.getLatestBlock().hash; // to get hash value from previous blocks hash
 		newBlock.hash = newBlock.calculateHash();
 
 		this.chain.push(newBlock);  //to push blocks into the blockchain
