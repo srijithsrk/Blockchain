@@ -6,7 +6,7 @@ class Block
 	{
 		this.index = index;
 		this.timestamp = timestamp;
-		this.data = data;  //amout :2 initially kept static
+		this.data = data;  //amount :2 initially kept static
 		this.previousHash = previousHash;
 		this,hash = this.calculateHash();
 	}
@@ -68,8 +68,8 @@ class Blockchain
 
 
 console.log(JSON.stringify(myCoin, null ,4));   //displays output
-
-}
+myCoin.chain[1].data = {amount : 40}; 
+console.log("is blockchain valid "+ my coin.isChainValid());
 
 // the output of this code till here will showcase a genesis block along with its other two blocks with the static data given by us in it.
 
