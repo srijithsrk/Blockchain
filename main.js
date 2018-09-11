@@ -48,7 +48,7 @@ class Blockchain
 	addBlock(newBlock)
 	{
 		newBlock.previousHash = this.getLatestBlock().hash; // to get hash value from previous blocks hash
-		newBlock.hash = newBlock.calculateHash();
+		newBlock.mineBlock(this.difficulty);
 
 		this.chain.push(newBlock);  //to push blocks into the blockchain
 	}
@@ -73,8 +73,11 @@ class Blockchain
 
 
 	let myCoin = new Blockchain(); //OOP'S application 
+console.log("mining Block 1..");
 
-	myCoin.addBlock(new Block(1, "09/09/2018" , {amount:4}));  //two blocks will be created with these parameters and will be pushed to blockchain 
+	myCoin.addBlock(new Block(1, "09/09/2018" , {amount:4})); 
+//two blocks will be created with these parameters and will be pushed to blockchain 
+console.log("mining Block 2..");
 	myCoin.addBlock(new Block(2, "10/09/2018" , {amount:8}));
 
 
