@@ -63,7 +63,7 @@ class Blockchain
 		console.log("Blocksuccessfully mined");
 		this.pendingTransaction = [      //transactions will now be finished 
 // coins are generated from code itself(reward) hencefoth from address is taken as null in the parameter
-		new Transaction(null, minerAddress, this.miningReward);               
+		new Transaction(null, minerAddress, this.miningReward)               
 		];  
 	}//reward is given to the person solving puzzle
 	//addBlock(newBlock)
@@ -94,18 +94,23 @@ class Blockchain
 
 
 	let myCoin = new Blockchain(); //OOP'S application 
-console.log("mining Block 1..");
+	myCoin.createTransaction(new Transaction("address-1", "address-2", 100));
+	myCoin.createTransaction(new Transaction("address-3", "address-4", 500));
+	console.log("start mining..");
+	myCoin.minePendingTransaction("miner address");
+	console.log(JSON.stringify(myCoin, null ,4));
+//console.log("mining Block 1..");
 
-	myCoin.addBlock(new Block("09/09/2018" , {amount:4})); 
+	//myCoin.addBlock(new Block("09/09/2018" , {amount:4})); 
 //two blocks will be created with these parameters and will be pushed to blockchain 
-console.log("mining Block 2..");
-	myCoin.addBlock(new Block("10/09/2018" , {amount:8}));
+//console.log("mining Block 2..");
+	//myCoin.addBlock(new Block("10/09/2018" , {amount:8}));
 
 
-console.log(JSON.stringify(myCoin, null ,4));   //displays output
+//console.log(JSON.stringify(myCoin, null ,4));   //displays output
 //myCoin.chain[1].data = {amount : 40}; 
 // the above line of code when once uncommented,the data of block1(line no 69)is altered
-console.log("is blockchain valid "+ my coin.isChainValid()); //displays the output for validity of blockchain
+//console.log("is blockchain valid "+ my coin.isChainValid()); //displays the output for validity of blockchain
 
 // the output of this code till here will showcase a genesis block along with its other two blocks with the static data given by us in it.
 
