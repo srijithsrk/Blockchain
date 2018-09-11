@@ -16,7 +16,7 @@ class Block
 	{         
 		return SHA256(this.index + this.timestamp +JSON.stringify(this.data) + this.previousHash + this.nonce).toString(); // to convert the data from integer to string
 	}
-	mineBlock(difficulty){
+	mineBlock(difficulty){    //mining done in blochain to avoid spamming
 		while(this.hash.substring(0, difficulty) !== Array(difficulty +1).join("0")){
 			this.nonce++; // nonce is just a variable which changes everytime resulting in the calculation of a new hash value
 			this.hash = this.calculateHash();
