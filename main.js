@@ -8,12 +8,20 @@ class Block
 		this.timestamp = timestamp;
 		this.data = data;  //amount :2 initially kept static
 		this.previousHash = previousHash;
-		this,hash = this.calculateHash();
+		this.hash = this.calculateHash();
+		this.nonce = 0;
 	}
 
 	calculateHash()  // this method calculates the hash value of the blocks
 	{         
-		return SHA256(this.index + this.timestamp +JSON.stringify(this.data) + this.previousHash).toString(); // to convert the data from integer to string
+		return SHA256(this.index + this.timestamp +JSON.stringify(this.data) + this.previousHash + this.nonce).toString(); // to convert the data from integer to string
+	}
+	mineBlock(difficulty){
+		while(this.hash.substring(0, difficulty) !== Array(difficulty +1).join("0")){
+			this.nonce++; // nonce is just a variable which changes everytime resulting in the calculation of a new hash value
+			this.hash = this.calculateHash();
+		}
+	console.log("Block mined " + this.hash);
 	}
 }
 
