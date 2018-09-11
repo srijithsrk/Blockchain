@@ -10,7 +10,6 @@ class Block
 {
 	constructor(index, timestamp, transactions, previousHash = '')
 	{
-		this.index = index;
 		this.timestamp = timestamp;
 		this.transactions = transactions ;  //amount :2 initially kept static
 		this.previousHash = previousHash;
@@ -20,7 +19,7 @@ class Block
 
 	calculateHash()  // this method calculates the hash value of the blocks
 	{         
-		return SHA256(this.index + this.timestamp +JSON.stringify(this.transactions) + this.previousHash + this.nonce).toString(); // to convert the data from integer to string
+		return SHA256(this.timestamp +JSON.stringify(this.transactions) + this.previousHash + this.nonce).toString(); // to convert the data from integer to string
 	}
 	mineBlock(difficulty){    //mining done in blochain to avoid spamming
 		while(this.hash.substring(0, difficulty) !== Array(difficulty +1).join("0")){
@@ -44,7 +43,7 @@ class Blockchain
 	createGenesisBlock()
 	{    
 		//its the first block containing no previous hash value
-		return new Block(0, "08/09/2018","Genesis Block","0");
+		return new Block( "08/09/2018","Genesis Block","0");
 		                //index,timestamp,data,previous HashValue
 
 	}
@@ -53,7 +52,20 @@ class Blockchain
 		//hash of this block is added to the next new block as previous blocks hash
 		return this.chain[this.chain.length-1];
 	}
-	
+	createTransaction(transaction){
+		this.pendingTransaction.push(transaction);  //for uncomfirmed transactions, a memory pool is created
+	}
+	minePendingTransaction(minerAddress){  //called by miner
+		let block = new Block(Date.now(), this.pendingTransaction); //current date and time will be taken
+		block.previousHash = this.getLatestBlock().hash;
+		block.mineBlock(this.difficulty);
+		this.chain.push(block);  //push the block to the block chain
+		console.log("Blocksuccessfully mined");
+		this.pendingTransaction = [      //transactions will now be finished 
+// coins are generated from code itself(reward) hencefoth from address is taken as null in the parameter
+		new Transaction(null, minerAddress, this.miningReward);               
+		];  
+	}//reward is given to the person solving puzzle
 	//addBlock(newBlock)
 	//{
 		//newBlock.previousHash = this.getLatestBlock().hash; // to get hash value from previous blocks hash
@@ -84,10 +96,10 @@ class Blockchain
 	let myCoin = new Blockchain(); //OOP'S application 
 console.log("mining Block 1..");
 
-	myCoin.addBlock(new Block(1, "09/09/2018" , {amount:4})); 
+	myCoin.addBlock(new Block("09/09/2018" , {amount:4})); 
 //two blocks will be created with these parameters and will be pushed to blockchain 
 console.log("mining Block 2..");
-	myCoin.addBlock(new Block(2, "10/09/2018" , {amount:8}));
+	myCoin.addBlock(new Block("10/09/2018" , {amount:8}));
 
 
 console.log(JSON.stringify(myCoin, null ,4));   //displays output
