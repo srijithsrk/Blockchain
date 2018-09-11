@@ -1,5 +1,11 @@
 const SHA256 = require('crypto-js/sha256');  
 // its used for importing header files in the form of sha256
+class Transaction(){
+	constructor(fromAddress, toAdress, amount){
+		this.fromAddress = fromAddress;
+		this.toAdress = toAdress;
+		this.amount = amount;
+	}
 class Block 
 {
 	constructor(index, timestamp, transactions, previousHash = '')
@@ -47,13 +53,14 @@ class Blockchain
 		//hash of this block is added to the next new block as previous blocks hash
 		return this.chain[this.chain.length-1];
 	}
-	addBlock(newBlock)
-	{
-		newBlock.previousHash = this.getLatestBlock().hash; // to get hash value from previous blocks hash
-		newBlock.mineBlock(this.difficulty);
+	
+	//addBlock(newBlock)
+	//{
+		//newBlock.previousHash = this.getLatestBlock().hash; // to get hash value from previous blocks hash
+		//newBlock.mineBlock(this.difficulty);
 
-		this.chain.push(newBlock);  //to push blocks into the blockchain
-	}
+		//this.chain.push(newBlock);  //to push blocks into the blockchain
+	//}
 	isChainValid(){      
 		// this method checks whether a particular block of code is altered or not
 		
