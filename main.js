@@ -2,11 +2,11 @@ const SHA256 = require('crypto-js/sha256');
 // its used for importing header files in the form of sha256
 class Block 
 {
-	constructor(index, timestamp, data, previousHash = '')
+	constructor(index, timestamp, transactions, previousHash = '')
 	{
 		this.index = index;
 		this.timestamp = timestamp;
-		this.data = data;  //amount :2 initially kept static
+		this.transactions = transactions ;  //amount :2 initially kept static
 		this.previousHash = previousHash;
 		this.hash = this.calculateHash();
 		this.nonce = 0;
@@ -14,7 +14,7 @@ class Block
 
 	calculateHash()  // this method calculates the hash value of the blocks
 	{         
-		return SHA256(this.index + this.timestamp +JSON.stringify(this.data) + this.previousHash + this.nonce).toString(); // to convert the data from integer to string
+		return SHA256(this.index + this.timestamp +JSON.stringify(this.transactions) + this.previousHash + this.nonce).toString(); // to convert the data from integer to string
 	}
 	mineBlock(difficulty){    //mining done in blochain to avoid spamming
 		while(this.hash.substring(0, difficulty) !== Array(difficulty +1).join("0")){
@@ -32,6 +32,8 @@ class Blockchain
 		this.chain =  [
 		this.createGenesisBlock()
 		];
+		this.difficulty = 3;
+		this.pendingTransaction = [];
 	}
 	createGenesisBlock()
 	{    
