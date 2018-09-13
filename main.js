@@ -73,9 +73,10 @@ class Blockchain
 
 		//this.chain.push(newBlock);  //to push blocks into the blockchain
 	//}
-	getBalanceOfAsress(address){  //
+	getBalanceOfAddress(address){  //
 		let balance = 0;
 		for(const block of this.chain){
+			for(const trans of block.transactions){
 			if(address === trans.fromAddress){
 				balance -= trans.amount;       // balance-trans amount
 			}
@@ -110,6 +111,7 @@ class Blockchain
 	myCoin.createTransaction(new Transaction("address-3", "address-4", 500));
 	console.log("start mining..");
 	myCoin.minePendingTransaction("miner address");
+	console.log("balance of miner = "+getBalanceOfAddress("miner address"));
 	console.log(JSON.stringify(myCoin, null ,4));
 //console.log("mining Block 1..");
 
