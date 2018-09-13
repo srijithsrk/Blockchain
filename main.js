@@ -73,6 +73,18 @@ class Blockchain
 
 		//this.chain.push(newBlock);  //to push blocks into the blockchain
 	//}
+	getBalanceOfAsress(address){  //
+		let balance = 0;
+		for(const block of this.chain){
+			if(address === trans.fromAddress){
+				balance -= trans.amount;       // balance-trans amount
+			}
+			if(address === trans.toAdress){
+				balance += trans.amount;
+			}
+		}
+	}
+	return balance;
 	isChainValid(){      
 		// this method checks whether a particular block of code is altered or not
 		
