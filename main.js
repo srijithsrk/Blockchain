@@ -1,3 +1,4 @@
+// THIS BLOCKCHAIN HAS BEEN CREATED BY ME JUST FOR AN EDUCATION PURPOSE
 const SHA256 = require('crypto-js/sha256');  
 // its used for importing header files in the form of sha256
 class Transaction(){
@@ -73,7 +74,7 @@ class Blockchain
 
 		//this.chain.push(newBlock);  //to push blocks into the blockchain
 	//}
-	getBalanceOfAddress(address){  //
+	getBalanceOfAddress(address){  //this method calculates the amount present after its being credited or debited
 		let balance = 0;
 		for(const block of this.chain){
 			for(const trans of block.transactions){
