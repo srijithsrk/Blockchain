@@ -25,3 +25,9 @@ Example- Multichain,Blockstack.
 Its controlled by a consortium of members where only verified set of nodes have acces to 
 the data  or block in the blockchain.
 Example- Ripple,R3.
+###### concept of Hashes
+###### Hash Functions
+It converts data of any type of size to a fixed size.
+###### properties of hash functions
+1. Collision free - two different data sets wont have a same hash value.
+2. Hiding - when data is hashed you cant find the actual data.
