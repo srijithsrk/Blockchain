@@ -37,5 +37,14 @@ It converts data of any type of size to a fixed size.
 3. the network of nodes validates the transaction and the users status using known algorithms.
 4. once verified,the transaction is combined with other transactions to create a new block of data for the ledger
    which is unalterable.
+## Forks in blockchain
+###### soft fork
+It restricts the set of rules
+Example - a soft fork is the one that restricts the block size limit from 1 MB to 500 KB, even though a 1MB block
+which was previously considered valid. Full nodes that upgrade to support this soft fork will reject any blocks
+larger than 500 KB after soft fork activates.
+
+
+![screenshot 270](https://user-images.githubusercontent.com/30682653/46692574-464b5b00-cc25-11e8-85a4-025fdccbf67a.png)
    
    
