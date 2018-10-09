@@ -63,6 +63,31 @@ a new block is generally added in a bitcoin network after every 10 minutes.
 ###### proof of stake
 creator of a new block is choosen depending on the wealth possesed by him  called stake.
 ![screenshot 271](https://user-images.githubusercontent.com/30682653/46692662-81e62500-cc25-11e8-82c3-0ef37d2409a8.png)
+## Etherum
+1. It was conceptualized by vitalik buterin in november 2013
+2. it is turing complete i.e; loops can be used
+3. it is a platform to develop Dapp.
+4. value token of ethereum blockchain is ether
+
+
+![screenshot 274](https://user-images.githubusercontent.com/30682653/46694018-2d44a900-cc29-11e8-9d97-8406ec85604c.png) 
+###### gas
+Everytime a contract is executed, ethereum consumes tokens which is termed as gas to run the computation
+minimum gas limit is 21000
+###### estimating transaction costs
+its based on two factors
+1. GasUsed = total gas consumed by the transaction
+2. GasPrice = its the price in ether for 1 unit of gas specified in the transaction
+Note - Gas is used only because the value of ether is not constant.
+Total cost = GasUsed * GasPrice 
+
+![screenshot 275](https://user-images.githubusercontent.com/30682653/46694110-6d0b9080-cc29-11e8-9ff1-4b85895b8ef3.png)
+
+
+
+
+
+
 
 
 
