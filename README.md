@@ -1,7 +1,7 @@
 # BLOCKCHAIN
 ## what is a blockchain?
 It is a **immutable** database.Data cant be edited or deleted,it can only be appended.
-Block+Chain=BLOCKCHAIN where block = block of code and chain = pointers to those data/block.
+Block+Chain=BLOCKCHAIN where block is block of code and chain is pointer to those data/block.
 ## Types of networks
 ###### Centralised network
 A network in which all clients make request to a *single server*.
@@ -38,7 +38,7 @@ It converts data of any type of size to a fixed size.
 4. once verified,the transaction is combined with other transactions to create a new block of data for the ledger
    which rom merkel root and is unalterable.
 ## Forks in blockchain
-###### Soft fork
+## Soft fork
 It restricts the set of rules
 Example - a soft fork is the one that restricts the block size limit from 1 MB to 500 KB, even though a 1MB block
 which was previously considered valid. Full nodes that upgrade to support this soft fork will reject any blocks
@@ -48,7 +48,7 @@ larger than 500 KB after soft fork activates.
 ![screenshot 270](https://user-images.githubusercontent.com/30682653/46692574-464b5b00-cc25-11e8-85a4-025fdccbf67a.png)
    
    
-###### Hard fork
+## Hard fork
 It loosens the set of rules
 Example - increases the blocksize limit from 1 MB to 2 MB, even though a 2 MB block which was previously considered invalid.
 Full nodes that upgrade to support this hard fork will accept any block upto 2 MB in size after the activation of hard fork.
@@ -82,19 +82,18 @@ Note - Gas is used only because the value of ether is not constant.
 Total cost = GasUsed * GasPrice 
 
 ![screenshot 275](https://user-images.githubusercontent.com/30682653/46694110-6d0b9080-cc29-11e8-9ff1-4b85895b8ef3.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
+## Solidity
+1. its a contact-oriented, high-level language whose syntax is similar to javascript
+2. it is statistically typed which supports inheritance,libraries and comlex user-defined types among other features.
+3. it compiles instructions into bytecode so that they can then be read by the network
+4. it is turing complete.
+refer this - https://github.com/srijithsrk/solidity
+###### Smart Contract
+its a code which runs between two people and it also avoids middleman
+you can refer some smart contracts here - https://github.com/srijithsrk/Smart-Contracts
+###### ERC20
+https://github.com/srijithsrk/ERC20
+https://github.com/srijithsrk/my_cryptocurrency
 
 
 
