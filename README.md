@@ -36,9 +36,9 @@ It converts data of any type of size to a fixed size.
 2. requested transaction is broadcasted to a peer-to-peer network consisting of nodes
 3. the network of nodes validates the transaction and the users status using known algorithms.
 4. once verified,the transaction is combined with other transactions to create a new block of data for the ledger
-   which is unalterable.
+   which rom merkel root and is unalterable.
 ## Forks in blockchain
-###### soft fork
+###### Soft fork
 It restricts the set of rules
 Example - a soft fork is the one that restricts the block size limit from 1 MB to 500 KB, even though a 1MB block
 which was previously considered valid. Full nodes that upgrade to support this soft fork will reject any blocks
@@ -48,3 +48,28 @@ larger than 500 KB after soft fork activates.
 ![screenshot 270](https://user-images.githubusercontent.com/30682653/46692574-464b5b00-cc25-11e8-85a4-025fdccbf67a.png)
    
    
+###### Hard fork
+It loosens the set of rules
+Example - increases the blocksize limit from 1 MB to 2 MB, even though a 2 MB block which was previously considered invalid.
+Full nodes that upgrade to support this hard fork will accept any block upto 2 MB in size after the activation of hard fork.
+###### proof of work
+a piece of data which is difficult to produce but easy for others to verify and which satisfies certain requirements
+###### Job of Miner
+He is given a merkel root and a nonce along with a target hash, a miner has to make some computations and find a certain
+value from merkel root and nonce which should be less than or equal to target hash.
+Note - a nonce is a random number taken to solve a proof of work and we need to start our prediction setting nonce as 0
+and later incrementing its value
+a new block is generally added in a bitcoin network after every 10 minutes.
+###### proof of stake
+creator of a new block is choosen depending on the wealth possesed by him  called stake.
+![screenshot 271](https://user-images.githubusercontent.com/30682653/46692662-81e62500-cc25-11e8-82c3-0ef37d2409a8.png)
+
+
+
+
+
+
+
+
+
+
